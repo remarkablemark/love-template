@@ -1,22 +1,22 @@
 function love.load()
     love.graphics.setDefaultFilter("nearest", "nearest")
-    anim8 = require 'lib/anim8/anim8'
+    anim8 = require "lib/anim8/anim8"
     player = {}
     player.x = 0
     player.y = 0
     player.speed = 3
 
-    player.sprite = love.graphics.newImage('assets/sprites/player.png')
+    player.sprite = love.graphics.newImage("assets/sprites/player.png")
     player.grid = anim8.newGrid(12, 18, player.sprite:getWidth(), player.sprite:getHeight())
 
     player.animations = {}
-    player.animations.down = anim8.newAnimation( player.grid('1-4', 1), 0.2 )
-    player.animations.left = anim8.newAnimation( player.grid('1-4', 2), 0.2 )
-    player.animations.right = anim8.newAnimation( player.grid('1-4', 3), 0.2 )
-    player.animations.up = anim8.newAnimation( player.grid('1-4', 4), 0.2 )
-    player.anim = player.animations.down
+    player.animations.down = anim8.newAnimation(player.grid("1-4", 1), 0.2)
+    player.animations.left = anim8.newAnimation(player.grid("1-4", 2), 0.2)
+    player.animations.right = anim8.newAnimation(player.grid("1-4", 3), 0.2)
+    player.animations.up = anim8.newAnimation(player.grid("1-4", 4), 0.2)
+    player.animations.current = player.animations.down
 
-    background = love.graphics.newImage('assets/images/background.png')
+    background = love.graphics.newImage("assets/images/background.png")
 end
 
 function love.update(dt)
@@ -24,37 +24,37 @@ function love.update(dt)
 
     if love.keyboard.isDown("right") then
         player.x = player.x + player.speed
-        player.anim = player.animations.right
+        player.animations.current = player.animations.right
         isMoving = true
     end
 
     if love.keyboard.isDown("left") then
         player.x = player.x - player.speed
-        player.anim = player.animations.left
+        player.animations.current = player.animations.left
         isMoving = true
     end
 
     if love.keyboard.isDown("down") then
         player.y = player.y + player.speed
-        player.anim = player.animations.down
+        player.animations.current = player.animations.down
         isMoving = true
     end
 
     if love.keyboard.isDown("up") then
         player.y = player.y - player.speed
-        player.anim = player.animations.up
+        player.animations.current = player.animations.up
         isMoving = true
     end
 
     if isMoving == false then
-        player.anim:gotoFrame(2)
+        player.animations.current:gotoFrame(2)
     end
 
-    player.anim:update(dt)
+    player.animations.current:update(dt)
 end
 
 function love.draw()
     -- love.graphics.print("Hello World", 400, 300)
     love.graphics.draw(background, 0, 0)
-    player.anim:draw(player.sprite, player.x, player.y, nil, 10)
+    player.animations.current:draw(player.sprite, player.x, player.y, nil, 10)
 end
