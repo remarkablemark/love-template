@@ -1,0 +1,3 @@
+[submodule "lib/anim8"]
+	path = lib/anim8
+	url = https://github.com/remarkablegames/anim8.git
