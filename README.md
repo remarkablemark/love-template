@@ -1,5 +1,7 @@
 # love-template
 
+[![build](https://github.com/remarkablegames/love-template/actions/workflows/build.yml/badge.svg)](https://github.com/remarkablegames/love-template/actions/workflows/build.yml)
+
 ❤️ [LÖVE](https://love2d.org/) template. Example from [challacade/snippets](https://github.com/challacade/snippets).
 
 ## Prerequisites
