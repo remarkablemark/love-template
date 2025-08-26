@@ -39,3 +39,11 @@ luac.out
 *.x86_64
 *.hex
 
+# Build
+/build
+
+# Vim swap files
+*.swp
+
+# Mac OS
+.DS_Store
