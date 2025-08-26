@@ -4,28 +4,28 @@
 
 ## Prerequisites
 
-Download [LÖVE](http://love2d.org/#download):
+Install [LÖVE](http://love2d.org/#download):
 
 ```sh
 brew install love
 ```
 
-Check the version:
+Install [Node.js](https://nodejs.org/):
 
 ```sh
-love --version
+brew install node
 ```
 
 ## Install
 
-Clone the repository:
+Clone repository:
 
 ```sh
 git clone https://github.com/remarkablegames/love-template.git
 cd love-template
 ```
 
-Initialize and update the submodules:
+Initialize and update submodules:
 
 ```sh
 git submodule update --init --recursive
@@ -33,10 +33,44 @@ git submodule update --init --recursive
 
 ## Run
 
-Run the game:
+Run game:
 
 ```sh
 love .
+```
+
+## Build
+
+[Build](https://love2d.org/wiki/Game_Distribution) game:
+
+```sh
+zip -9 -r love-template.love **/*.lua assets
+```
+
+Move to directory:
+
+```sh
+mkdir -p build && mv love-template.love build
+```
+
+## Web
+
+Build for web using [love.js](https://www.npmjs.com/package/love.js):
+
+```sh
+npx love.js build/love-template.love build -c -t love-template
+```
+
+Run web server:
+
+```sh
+python3 -m http.server -d build
+```
+
+View game:
+
+```sh
+open http://localhost:8000/
 ```
 
 ## License
