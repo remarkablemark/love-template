@@ -14,12 +14,14 @@ jobs:
         with:
           submodules: true
 
+      - name: Set environment variable
+        run: echo "GAME=${{ github.event.repository.name }}.love" >> $GITHUB_ENV
+
       - name: Build
         run: |
-          FILE=${{ github.repository }}.love
-          shopt -s globstar && zip -9 -r $FILE **/*.lua assets
-          mkdir -p build && mv $FILE build
-          npx love.js build/$FILE build -c -t "Love Template"
+          shopt -s globstar && zip -9 -r $GAME **/*.lua assets
+          mkdir -p build && mv $GAME build
+          npx love.js build/$GAME build -c -t "Love Template"
 
       - name: Deploy
         if: github.ref_name == 'master'
