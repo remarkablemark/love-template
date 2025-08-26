@@ -16,9 +16,10 @@ jobs:
 
       - name: Build
         run: |
-          shopt -s globstar && zip -9 -r love-template.love **/*.lua assets
-          mkdir -p build && mv love-template.love build
-          npx love.js build/love-template.love build -c -t love-template
+          FILE=${{ github.repository }}.love
+          shopt -s globstar && zip -9 -r $FILE **/*.lua assets
+          mkdir -p build && mv $FILE build
+          npx love.js build/$FILE build -c -t "Love Template"
 
       - name: Deploy
         if: github.ref_name == 'master'
