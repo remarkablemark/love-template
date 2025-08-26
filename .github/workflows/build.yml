@@ -20,8 +20,7 @@ jobs:
       - name: Build
         run: |
           shopt -s globstar && zip -9 -r $GAME **/*.lua assets
-          mkdir -p build && mv $GAME build
-          npx love.js build/$GAME build -c -t "Love Template"
+          npx love.js $GAME build -c -t "Love Template"
 
       - name: Deploy
         if: github.ref_name == 'master'
