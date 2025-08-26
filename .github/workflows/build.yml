@@ -1,0 +1,25 @@
+name: build
+on: [push, pull_request]
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
+      - name: Build
+        run: |
+          zip -9 -r love-template.love **/*.lua assets
+          mkdir -p build && mv love-template.love build
+          npx love.js build/love-template.love build -c -t love-template
+
+      - name: Deploy
+        if: github.ref_name == 'master'
+        uses: remarkablemark/gitploy-action@v1
+        with:
+          directory: build
