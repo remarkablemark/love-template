@@ -53,6 +53,12 @@ Move to directory:
 mkdir -p build && mv love-template.love build
 ```
 
+Open game:
+
+```sh
+open build/love-template.love
+```
+
 ## Web
 
 Build for web using [love.js](https://www.npmjs.com/package/love.js):
