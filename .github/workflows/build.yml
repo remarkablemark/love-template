@@ -20,10 +20,10 @@ jobs:
       - name: Build
         run: |
           shopt -s globstar && zip -9 -r $GAME **/*.lua assets
-          npx love.js $GAME build -c -t "Love Template"
+          npx love.js $GAME web -c -t "Love Template"
 
       - name: Deploy
         if: github.ref_name == 'master'
         uses: remarkablemark/gitploy-action@v1
         with:
-          directory: build
+          directory: web

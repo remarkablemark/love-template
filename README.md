@@ -1,8 +1,8 @@
-# love-template
+# Love Template
 
 [![build](https://github.com/remarkablegames/love-template/actions/workflows/build.yml/badge.svg)](https://github.com/remarkablegames/love-template/actions/workflows/build.yml)
 
-❤️ [LÖVE](https://love2d.org/) template. Example from [challacade/snippets](https://github.com/challacade/snippets).
+❤️ [LÖVE](https://love2d.org/) template to make 2D games in Lua. Example from [challacade/snippets](https://github.com/challacade/snippets).
 
 ## Prerequisites
 
@@ -49,16 +49,10 @@ love .
 zip -9 -r love-template.love **/*.lua assets
 ```
 
-Move to directory:
-
-```sh
-mkdir -p build && mv love-template.love build
-```
-
 Open game:
 
 ```sh
-open build/love-template.love
+open love-template.love
 ```
 
 ## Web
@@ -66,13 +60,13 @@ open build/love-template.love
 Build for web using [love.js](https://www.npmjs.com/package/love.js):
 
 ```sh
-npx love.js build/love-template.love build -c -t love-template
+npx love.js love-template.love web -c -t love-template
 ```
 
 Run web server:
 
 ```sh
-python3 -m http.server -d build
+python3 -m http.server -d web
 ```
 
 View game:
