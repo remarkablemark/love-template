@@ -2,7 +2,7 @@
 
 [![build](https://github.com/remarkablegames/love-template/actions/workflows/build.yml/badge.svg)](https://github.com/remarkablegames/love-template/actions/workflows/build.yml)
 
-❤️ [LÖVE](https://love2d.org/) template to make 2D games in Lua. Example from [challacade/snippets](https://github.com/challacade/snippets).
+❤️ [LÖVE](https://love2d.org/) template to make 2D games in [Lua](https://www.lua.org/). Example from [challacade/snippets](https://github.com/challacade/snippets).
 
 ## Prerequisites
 
