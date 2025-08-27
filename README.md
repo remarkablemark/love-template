@@ -33,6 +33,13 @@ Initialize and update submodules:
 git submodule update --init --recursive
 ```
 
+Rename game:
+
+```sh
+git grep -l love-template | xargs sed -i '' -e 's/love-template/my-game/g'
+git grep -l 'Love Template' | xargs sed -i '' -e 's/Love Template/My Game/g'
+```
+
 ## Run
 
 Run game:
