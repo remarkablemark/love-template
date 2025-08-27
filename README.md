@@ -60,7 +60,7 @@ open love-template.love
 Build for web using [love.js](https://www.npmjs.com/package/love.js):
 
 ```sh
-npx love.js love-template.love web -c -t love-template
+npx love.js love-template.love web -c -t "Love Template"
 ```
 
 Run web server:
